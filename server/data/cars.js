@@ -1,15 +1,15 @@
 const cars = [
   {
     id: 'A',
-    consumption: 3,
+    fuelFlowPer100Kilometers: 3,
   },
   {
     id: 'B',
-    consumption: 3.5,
+    fuelFlowPer100Kilometers: 3.5,
   },
   {
     id: 'C',
-    consumption: 4,
+    fuelFlowPer100Kilometers: 4,
   },
 ];
 
