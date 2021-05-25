@@ -3,7 +3,6 @@ const app = require('./server/app');
 
 const logger = require('./server/utils/logger');
 
-
 const server = http.createServer(app);
 
 const PORT = process.env.PORT || 3001;

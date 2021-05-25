@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const { isTestEnvironment } = require('./environment');
 
 const logger = () => {

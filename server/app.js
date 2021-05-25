@@ -6,8 +6,6 @@ app.use(express.json());
 
 const V1_ROUTE = '/api/v1';
 
-app.get(V1_ROUTE + '/health', (req, res) => {
-  res.send('ok')
-})
+app.get(`${V1_ROUTE}/health`, (_req, res) => res.send('ok'));
 
 module.exports = app;
