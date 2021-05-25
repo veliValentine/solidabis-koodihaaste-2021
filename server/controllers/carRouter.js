@@ -4,8 +4,9 @@ const {
   cars,
   findCarById,
   getConsumptionData,
-  getComparisonData
+  getComparisonData,
 } = require('../service/carService');
+
 const {
   status400,
   status404,
