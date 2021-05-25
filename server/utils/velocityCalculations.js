@@ -1,16 +1,12 @@
-const { isValidNumber } = require('./validators');
+const { argumentsAreValidNumbers } = require('./validators');
 
 const calculateTime = (distance, velocity) => {
-  if (!isValidNumber(distance) || !isValidNumber(velocity)) {
-    throw new TypeError('Invalid arguments');
-  }
+  argumentsAreValidNumbers(2, distance, velocity);
   return distance / velocity;
 };
 
 const calculateTimeDifference = (distance, velocity1, velocity2) => {
-  if (!isValidNumber(distance) || !isValidNumber(velocity1) || !isValidNumber(velocity2)) {
-    throw new TypeError('Invalid arguments');
-  }
+  argumentsAreValidNumbers(3, distance, velocity1, velocity2);
   return calculateTime(distance, velocity2) - calculateTime(distance, velocity1);
 };
 
