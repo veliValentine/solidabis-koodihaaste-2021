@@ -9,7 +9,12 @@ const ConsumptionForm = ({ submit }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    submit(vehicle, Number(distance), Number(velocity1), Number(velocity2));
+    submit({
+      vehicle,
+      distance: Number(distance),
+      velocity1: Number(velocity1),
+      velocity2: Number(velocity2),
+    });
   };
 
   return (
