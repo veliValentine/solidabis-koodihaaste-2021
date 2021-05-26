@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import NumberInput from './NumberInput';
 
-const VelocityForm = ({ submit }) => {
+const ConsumptionForm = ({ submit }) => {
   const [vehicle] = useState('A');
   const [distance, setDistance] = useState(20);
   const [velocity1, setVelocity1] = useState(50);
@@ -43,4 +43,4 @@ const VelocityForm = ({ submit }) => {
   );
 };
 
-export default VelocityForm;
+export default ConsumptionForm;
