@@ -1,31 +1,42 @@
 import { useState } from 'react';
-import VelocityInput from './VelocityInput';
+import NumberInput from './NumberInput';
 
 const VelocityForm = ({ submit }) => {
   const [vehicle] = useState('A');
+  const [distance, setDistance] = useState(20);
   const [velocity1, setVelocity1] = useState(50);
-  const [velocity2, setVelocity2] = useState(80);
+  const [velocity2, setVelocity2] = useState(0);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    submit(vehicle, Number(velocity1), Number(velocity2));
+    submit(vehicle, Number(distance), Number(velocity1), Number(velocity2));
   };
 
   return (
     <form className="velocity" onSubmit={handleSubmit}>
       <h2>{vehicle}</h2>
-      <VelocityInput
+      <NumberInput
+        id="distance"
+        value={distance}
+        setValue={setDistance}
+        placeholder="Distance"
+        label="Enter distance: "
+        required
+      />
+      <NumberInput
         id="velocity1"
         value={velocity1}
-        handleChange={(event) => setVelocity1(event.target.value)}
+        setValue={setVelocity1}
+        placeholder="Velocity"
         label="Enter first velocity: "
         required
       />
-      <VelocityInput
+      <NumberInput
         id="velocity2"
         value={velocity2}
-        handleChange={(event) => setVelocity2(event.target.value)}
-        label="Enter second velocity:"
+        setValue={setVelocity2}
+        placeholder="Velocity"
+        label="Enter second velocity (optional):"
       />
       <button type="submit">Submit</button>
     </form>
