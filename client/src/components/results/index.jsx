@@ -1,5 +1,6 @@
 import ConsumptionData from './Consumptiondata';
 import DifferenceData from './DifferenceData';
+import './results.css';
 
 const Results = ({ data1, data2, difference }) => {
   const noData = !data1;
@@ -8,7 +9,11 @@ const Results = ({ data1, data2, difference }) => {
   }
   const noComparison = data1 && (!data2 || !difference);
   if (noComparison) {
-    return <ConsumptionData data={data1} />;
+    return (
+      <div className="results">
+        <ConsumptionData data={data1} />
+      </div>
+    );
   }
   return (
     <div className="results">
