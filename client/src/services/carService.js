@@ -14,17 +14,27 @@ export const cars = async () => {
 export const consumption = async (vehicle, distance, velocity) => {
   try {
     const { data } = await axios.get(`${CARS_API_URL}/${vehicle}/${distance}/${velocity}`);
-    return data;
+
+    return {
+      ...data,
+      data1: data
+    };
   } catch (error) {
     console.error(error);
+    return null;
   }
 };
 
 export const compare = async (vehicle, distance, velocity1, velocity2) => {
   try {
     const { data } = await axios.get(`${CARS_API_URL}/${vehicle}/${distance}/${velocity1}/${velocity2}`);
-    return data;
+    return {
+      ...data,
+      data1: data.data_1 ? data.data_1 : data.data1,
+      data2: data.data_2 ? data.data_2 : data.data2,
+    };
   } catch (error) {
     console.error(error);
+    return null;
   }
 };
