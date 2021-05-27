@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
-import VelocityForm from './components/velocityForm';
+import React from 'react';
+
+import useData from './hooks/useData';
+
+import ConsumptionForm from './components/consumptionForm';
+import Results from './components/results';
 
 const App = () => {
-  const handleVelocitySubmit = (vehicle, velocity1, velocity2) => {
-    console.log('submit', { vehicle, velocity1, velocity2 });
+  const [data1, data2, difference, updateData] = useData();
+
+  const handleVelocitySubmit = (values) => {
+    updateData(values);
   };
 
   return (
     <div>
       <h1> Welcome!</h1>
-      <VelocityForm submit={handleVelocitySubmit} />
+      <ConsumptionForm submit={handleVelocitySubmit} />
+      <hr />
+      <Results data1={data1} data2={data2} difference={difference} />
     </div>
   );
 };
