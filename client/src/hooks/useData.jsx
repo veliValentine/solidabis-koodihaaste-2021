@@ -8,7 +8,6 @@ const useData = () => {
 
   const updateData = async (values = {}) => {
     const { vehicle, distance, velocity1, velocity2 } = values;
-    if (!vehicle || !distance) return;
     if (velocity2) {
       return setData(await carService.compare(vehicle, distance, velocity1, velocity2));
     }
@@ -24,13 +23,11 @@ const useData = () => {
     setData2(data2);
     setDifference(difference);
   };
-
   const data = {
     data1,
     data2,
     difference
   };
-
   return [data, updateData];
 };
 
