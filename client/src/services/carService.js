@@ -21,7 +21,6 @@ export const consumption = async (vehicle, distance, velocity) => {
     };
   } catch (error) {
     console.error(error);
-    return null;
   }
 };
 
@@ -35,6 +34,13 @@ export const compare = async (vehicle, distance, velocity1, velocity2) => {
     };
   } catch (error) {
     console.error(error);
-    return null;
   }
 };
+
+const carService = {
+  cars,
+  consumption,
+  compare,
+};
+
+export default carService;
