@@ -2,7 +2,6 @@ import { useState } from 'react';
 import NumberInput from './NumberInput';
 
 const ConsumptionForm = ({ submit }) => {
-  const [vehicle] = useState('A');
   const [distance, setDistance] = useState(20);
   const [velocity1, setVelocity1] = useState(50);
   const [velocity2, setVelocity2] = useState(0);
@@ -10,7 +9,6 @@ const ConsumptionForm = ({ submit }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     submit({
-      vehicle,
       distance: Number(distance),
       velocity1: Number(velocity1),
       velocity2: Number(velocity2),
@@ -19,7 +17,6 @@ const ConsumptionForm = ({ submit }) => {
 
   return (
     <form className="velocity" onSubmit={handleSubmit}>
-      <h2>{vehicle}</h2>
       <NumberInput
         id="distance"
         value={distance}
@@ -27,6 +24,7 @@ const ConsumptionForm = ({ submit }) => {
         placeholder="Distance"
         label="Enter distance: "
         required
+        min={0.1}
       />
       <NumberInput
         id="velocity1"
