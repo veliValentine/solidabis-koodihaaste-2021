@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import carService from '../services/carService';
 
-const useData = () => {
+const useData = (addHistory) => {
   const [data1, setData1] = useState(null);
   const [data2, setData2] = useState(null);
   const [difference, setDifference] = useState(null);
@@ -21,6 +21,7 @@ const useData = () => {
     const { data1 = null, data2 = null, difference = null } = data;
     setData1(data1);
     setData2(data2);
+    addHistory(data1, data2);
     setDifference(difference);
   };
   const data = {
