@@ -35,6 +35,7 @@ const ConsumptionForm = ({ submit }) => {
         placeholder="Velocity"
         label="Enter first velocity: "
         required
+        min={1}
       />
       <NumberInput
         id="velocity2"
