@@ -2,7 +2,8 @@ import ConsumptionData from './Consumptiondata';
 import DifferenceData from './DifferenceData';
 import './results.css';
 
-const Results = ({ data1, data2, difference }) => {
+const Results = ({ data }) => {
+  const { data1, data2, difference } = data;
   const noData = !data1;
   if (noData) {
     return null;
