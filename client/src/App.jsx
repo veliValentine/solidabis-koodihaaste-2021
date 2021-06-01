@@ -17,7 +17,7 @@ const App = () => {
       <h1> Welcome!</h1>
       <ConsumptionForm submit={handleVelocitySubmit} />
       <hr />
-      <Results data1={data1} data2={data2} difference={difference} />
+      {data1 && <Results data1={data1} data2={data2} difference={difference} />}
     </div>
   );
 };
