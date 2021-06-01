@@ -3,12 +3,11 @@ import useCars from '../hooks/useCars';
 const VehicleForm = ({ submit }) => {
   const [cars] = useCars();
 
-  const handleChange = (event) => {
-    console.log('submit vehicle form');
-    submit(event.target.value.toUpperCase());
-  };
+  const handleChange = (event) => submit(event.target.value.toUpperCase());
 
-  const options = cars.map(({ id }) => <option key={id} value={id}>{id}</option>); 
+  const carOption = ({ id }) => <option key={id} value={id}>{id}</option>;
+
+  const options = cars.map(carOption);
 
   return (
     <div className="vehicle-form">
