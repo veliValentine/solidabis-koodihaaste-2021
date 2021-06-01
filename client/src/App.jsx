@@ -1,23 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import useData from './hooks/useData';
 
 import ConsumptionForm from './components/consumptionForm';
 import Results from './components/results';
+import VehicleForm from './components/VehicleForm';
 
 const App = () => {
-  const [data1, data2, difference, updateData] = useData();
+  const [data, updateData] = useData();
+  const [vehicle, setVehicle] = useState('');
+
+  const handleVehicleSubmit = (value = '') => {
+    setVehicle(value.toUpperCase());
+    updateData();
+  };
 
   const handleVelocitySubmit = (values) => {
-    updateData(values);
+    updateData({ ...values, vehicle });
   };
 
   return (
     <div>
       <h1> Welcome!</h1>
-      <ConsumptionForm submit={handleVelocitySubmit} />
+
+      <VehicleForm submit={handleVehicleSubmit} />
       <hr />
-      {data1 && <Results data1={data1} data2={data2} difference={difference} />}
+
+      <h2>{vehicle}</h2>
+      {vehicle && <ConsumptionForm submit={handleVelocitySubmit} />}
+      {(vehicle && data.data1) && <><hr /><Results data={data} /></>}
     </div>
   );
 };
