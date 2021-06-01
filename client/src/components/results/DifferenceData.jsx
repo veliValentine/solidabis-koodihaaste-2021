@@ -9,7 +9,7 @@ const DifferenceData = ({ difference }) => {
         <th>Difference</th>
       </TableHead>
       <TableBody>
-        <Time value={time} />
+        <Time value={time} difference/>
         <Fuel value={fuel} />
       </TableBody>
     </table>
