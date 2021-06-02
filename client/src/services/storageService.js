@@ -7,9 +7,14 @@ const saveHistory = (history) => {
   localStorage.setItem(HISTORY_KEY, btoa(JSON.stringify(history)));
 };
 
+const clearHistory = () => {
+  localStorage.removeItem(HISTORY_KEY);
+};
+
 const storageService = {
   getHistory,
   saveHistory,
+  clearHistory,
 };
 
 export default storageService;
