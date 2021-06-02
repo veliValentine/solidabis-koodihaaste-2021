@@ -6,6 +6,7 @@ import useDataHistory from './hooks/useDataHistory';
 import ConsumptionForm from './components/consumptionForm';
 import Results from './components/results';
 import VehicleForm from './components/VehicleForm';
+import History from './components/History';
 
 const App = () => {
   const [dataHistory, addHistory] = useDataHistory();
@@ -30,34 +31,6 @@ const App = () => {
       {vehicle && <ConsumptionForm submit={handleVelocitySubmit} />}
       {(vehicle && data.data1) && <><hr /><Results data={data} /></>}
     </div>
-  );
-};
-
-const History = ({ history }) => {
-  console.log(history);
-  return (
-    <table className="history">
-      <thead>
-        <tr>
-          <th>Vehicle</th>
-          <th>Distance</th>
-          <th>Velocity</th>
-          <th>Time</th>
-          <th>Fuel</th>
-        </tr>
-      </thead>
-      <tbody>
-        {history.map((item, index) => (
-          <tr key={index}>
-            <td>{item.carId}</td>
-            <td>{item.distance}</td>
-            <td>{item.velocity}</td>
-            <td>{item.time}</td>
-            <td>{item.fuel}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
   );
 };
 

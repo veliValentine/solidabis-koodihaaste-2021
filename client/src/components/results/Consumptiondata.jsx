@@ -1,17 +1,22 @@
 import { TableBody, TableHead } from '../Table';
-import { Distance, Fuel, Time, Velocity } from './Values';
+import { Distance, Fuel, Time, Velocity, wrapTableRow } from './Values';
 
 const ConsumptionData = ({ data }) => {
   const { velocity, distance, time, fuel } = data;
+
+  const rows = [
+    <Distance value={distance} />,
+    <Time value={time} />,
+    <Fuel value={fuel} />
+  ].map(wrapTableRow);
+
   return (
     <table className="consumption">
       <TableHead>
-        <Velocity value={velocity} />
+        <th><Velocity value={velocity} /></th>
       </TableHead>
       <TableBody>
-        <Distance value={distance} />
-        <Time value={time} />
-        <Fuel value={fuel} />
+        {rows}
       </TableBody>
     </table>
   );

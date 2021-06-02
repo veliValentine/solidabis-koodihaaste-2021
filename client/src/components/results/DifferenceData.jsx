@@ -1,16 +1,20 @@
 import { TableBody, TableHead } from '../Table';
-import { Fuel, Time } from './Values';
+import { Fuel, Time, wrapTableRow } from './Values';
 
 const DifferenceData = ({ difference }) => {
   const { time, fuel } = difference;
+  const rows = [
+    <Time value={time} difference />,
+    <Fuel value={fuel} />
+  ].map(wrapTableRow);
+
   return (
     <table className="difference">
       <TableHead>
         <th>Difference</th>
       </TableHead>
       <TableBody>
-        <Time value={time} difference/>
-        <Fuel value={fuel} />
+        {rows}
       </TableBody>
     </table>
   );

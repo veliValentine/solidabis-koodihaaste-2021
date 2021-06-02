@@ -1,17 +1,17 @@
-export const Velocity = ({ value }) => (
-  <th>Velocity: {value}km/h</th>
+export const Velocity = ({ value, text = 'Velocity: ' }) => (
+  <span>{text}{value}km/h</span>
 );
 
-export const Distance = ({ value }) => (
-  <tr><td>Distance: {value.toFixed(1)}km</td></tr>
+export const Distance = ({ value, text = 'Distance: ' }) => (
+  <span>{text}{value.toFixed(1)}km</span>
 );
 
-export const Time = ({ value, difference }) => {
+export const Time = ({ value, difference, text = 'Time: ' }) => {
   const differenceText = difference ? getDifferenceText(value) : '';
   const [days, hours, minutes] = getTime(Math.abs(value));
   const daysText = days ? `${days} days ` : '';
   return (
-    <tr><td>Time: {daysText} {hours} hours and {minutes} minutes {differenceText}</td></tr>
+    <span>{text}{daysText} {hours} hours and {minutes} minutes {differenceText}</span>
   );
 };
 
@@ -32,6 +32,9 @@ const getTime = (hourValue) => {
   return [days, hours, minutes];
 };
 
-export const Fuel = ({ value }) => (
-  <tr><td>Fuel: {value.toFixed(2)} liters</td></tr>
+export const Fuel = ({ value, text = 'Fuel: ' }) => (
+  <span>{text}{value.toFixed(2)} liters</span>
 );
+
+
+export const wrapTableRow = (component, i) => <tr key={i}><td>{component}</td></tr>;
