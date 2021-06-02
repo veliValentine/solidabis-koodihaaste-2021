@@ -1,4 +1,4 @@
-import { Distance, Fuel, Time, Velocity } from './components/results/Values';
+import { Distance, Fuel, Time, Velocity } from './results/Values';
 
 const History = ({ history }) => {
   return (

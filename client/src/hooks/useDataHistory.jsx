@@ -25,7 +25,12 @@ const useDataHistory = () => {
     }
   };
 
-  return [history, addHistory];
+  const clearHistory = () => {
+    storageService.clearHistory();
+    setHistory([]);
+  };
+
+  return [history, addHistory, clearHistory];
 };
 
 export default useDataHistory;
