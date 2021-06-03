@@ -1,5 +1,5 @@
-import { TableBody, TableHead } from '../Table';
-import { Fuel, Time, wrapTableRow } from './Values';
+import { TableBody, TableHead, wrapTableRow } from '../Table';
+import { Fuel, Time } from './Values';
 
 const DifferenceData = ({ difference }) => {
   const { time, fuel } = difference;

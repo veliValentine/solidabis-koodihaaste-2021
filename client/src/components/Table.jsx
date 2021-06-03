@@ -11,3 +11,5 @@ export const TableBody = ({ children }) => (
     {children}
   </tbody>
 );
+
+export const wrapTableRow = (component, i) => <tr key={i}><td>{component}</td></tr>;

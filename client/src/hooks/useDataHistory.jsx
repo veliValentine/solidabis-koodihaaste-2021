@@ -21,7 +21,7 @@ const useDataHistory = () => {
   const addHistory = (...data) => {
     const truthfulData = data.filter(item => item);
     if (truthfulData.length) {
-      setHistory(history.concat(truthfulData));
+      setHistory(truthfulData.concat(history));
     }
   };
 

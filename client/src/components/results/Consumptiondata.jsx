@@ -1,5 +1,5 @@
-import { TableBody, TableHead } from '../Table';
-import { Distance, Fuel, Time, Velocity, wrapTableRow } from './Values';
+import { TableBody, TableHead, wrapTableRow } from '../Table';
+import { Distance, Fuel, Time, Velocity } from './Values';
 
 const ConsumptionData = ({ data }) => {
   const { velocity, distance, time, fuel } = data;

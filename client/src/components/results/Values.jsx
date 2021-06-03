@@ -35,6 +35,3 @@ const getTime = (hourValue) => {
 export const Fuel = ({ value, text = 'Fuel: ' }) => (
   <span>{text}{value.toFixed(2)} liters</span>
 );
-
-
-export const wrapTableRow = (component, i) => <tr key={i}><td>{component}</td></tr>;
