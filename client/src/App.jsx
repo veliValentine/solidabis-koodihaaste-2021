@@ -9,7 +9,7 @@ import VehicleForm from './components/VehicleForm';
 import History from './components/History';
 
 const App = () => {
-  const [dataHistory, addHistory] = useDataHistory();
+  const [dataHistory, addHistory, clearHistory] = useDataHistory();
   const [data, updateData] = useData(addHistory);
   const [vehicle, setVehicle] = useState('');
 
@@ -29,7 +29,7 @@ const App = () => {
       {vehicle && <ConsumptionForm submit={handleVelocitySubmit} />}
       {(vehicle && data.data1) && <><hr /><Results data={data} /></>}
       <hr />
-      <History history={dataHistory} />
+      <History history={dataHistory} clearHistory={clearHistory} />
     </div>
   );
 };
