@@ -14,11 +14,11 @@ jobs:
         with:
           node-version: "12.x"
       - name: npm install
-          run: npm i
-          working-directory: ${{ env.CLIENT_PATH }}
+        run: npm i
+        working-directory: ${{ env.CLIENT_PATH }}
       - name: npm build
-          run: npm run build
-          working-directory: ${{ env.CLIENT_PATH }}
+        run: npm run build
+        working-directory: ${{ env.CLIENT_PATH }}
 
   build-push:
     runs-on: ubuntu-latest
