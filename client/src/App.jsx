@@ -22,14 +22,14 @@ const App = () => {
 
   return (
     <div>
-      <History history={dataHistory} />
-      <hr />
       <h1> Welcome!</h1>
       <VehicleForm submit={handleVehicleSubmit} />
       <hr />
       <h2>{vehicle}</h2>
       {vehicle && <ConsumptionForm submit={handleVelocitySubmit} />}
       {(vehicle && data.data1) && <><hr /><Results data={data} /></>}
+      <hr />
+      <History history={dataHistory} />
     </div>
   );
 };
