@@ -13,7 +13,10 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "12.x"
+      - name: npm install
           run: npm i
+          working-directory: ${{ env.CLIENT_PATH }}
+      - name: npm build
           run: npm run build
           working-directory: ${{ env.CLIENT_PATH }}
 
