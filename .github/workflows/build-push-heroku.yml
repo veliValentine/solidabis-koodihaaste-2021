@@ -14,9 +14,8 @@ jobs:
         with:
           node-version: "12.x"
           run: npm i
-            working-directory: ${{ env.CLIENT_PATH }}
           run: npm run build
-            working-directory: ${{ env.CLIENT_PATH }}
+          working-directory: ${{ env.CLIENT_PATH }}
 
   build-push:
     runs-on: ubuntu-latest
