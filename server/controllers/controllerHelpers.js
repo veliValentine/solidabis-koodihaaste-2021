@@ -7,10 +7,20 @@ const status400 = (res, message) => res.status(400).json({ error: message });
 
 const status404 = (res, message) => res.status(404).json({ error: message });
 
+const sendData = (res, info, data1, data2 = null, difference = null) => {
+  res.json({
+    info,
+    data1,
+    data2,
+    difference,
+  });
+};
+
 module.exports = {
   V1_ROUTE,
   parseVelocity,
   parseDistance,
   status400,
   status404,
+  sendData,
 };

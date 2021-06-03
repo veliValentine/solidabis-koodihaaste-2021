@@ -8,6 +8,7 @@ const {
 } = require('../service/carService');
 
 const {
+  sendData,
   status400,
   status404,
   parseDistance,
@@ -32,14 +33,15 @@ carRouter.get('/:id/:distance/:velocity', (req, res) => {
   const { id } = req.params;
   const distance = parseDistance(req);
   const velocity = parseVelocity(req);
-  if (!id || !distance || !velocity) {
+  if (!id || Number.isNaN(distance) || !velocity) {
     return status400(res, 'missing or invalid params.');
   }
   const car = findCarById(id);
   if (!car) {
     return status404(res, `Car with id: ${id} not found`);
   }
-  return res.json(getConsumptionData(car, distance, velocity));
+  const info = { distance, carId: car.id };
+  return sendData(res, info, getConsumptionData(car, distance, velocity));
 });
 
 carRouter.get('/:id/:distance/:velocity1/:velocity2', (req, res) => {
@@ -47,14 +49,16 @@ carRouter.get('/:id/:distance/:velocity1/:velocity2', (req, res) => {
   const distance = parseDistance(req);
   const velocity1 = parseVelocity(req, 'velocity1');
   const velocity2 = parseVelocity(req, 'velocity2');
-  if (!id || !distance || !velocity1 || !velocity2) {
+  if (!id || Number.isNaN(distance) || !velocity1 || !velocity2) {
     return status400(res, 'missing or invalid params.');
   }
   const car = findCarById(id);
   if (!car) {
     return status404(res, `Car with id: ${id} not found`);
   }
-  return res.json(getComparisonData(car, distance, velocity1, velocity2));
+  const info = { distance, carId: car.id };
+  const { data1, data2, difference } = getComparisonData(car, distance, velocity1, velocity2);
+  return sendData(res, info, data1, data2, difference);
 });
 
 module.exports = carRouter;
