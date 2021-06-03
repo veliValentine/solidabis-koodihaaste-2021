@@ -31,10 +31,19 @@ carRouter.get('/:id', (req, res) => {
 
 carRouter.get('/:id/:distance/:velocity', (req, res) => {
   const { id } = req.params;
-  const distance = parseDistance(req);
-  const velocity = parseVelocity(req);
-  if (!id || Number.isNaN(distance) || !velocity) {
-    return status400(res, 'missing or invalid params.');
+  let distance;
+  let velocity;
+  try {
+    distance = parseDistance(req);
+    velocity = parseVelocity(req);
+  } catch (error) {
+    if (error instanceof Error) {
+      return status400(res, error.message);
+    }
+    throw error;
+  }
+  if (!id) {
+    return status400(res, 'missing car id');
   }
   const car = findCarById(id);
   if (!car) {
@@ -46,10 +55,20 @@ carRouter.get('/:id/:distance/:velocity', (req, res) => {
 
 carRouter.get('/:id/:distance/:velocity1/:velocity2', (req, res) => {
   const { id } = req.params;
-  const distance = parseDistance(req);
-  const velocity1 = parseVelocity(req, 'velocity1');
-  const velocity2 = parseVelocity(req, 'velocity2');
-  if (!id || Number.isNaN(distance) || !velocity1 || !velocity2) {
+  let distance;
+  let velocity1;
+  let velocity2;
+  try {
+    distance = parseDistance(req);
+    velocity1 = parseVelocity(req, 'velocity1');
+    velocity2 = parseVelocity(req, 'velocity2');
+  } catch (error) {
+    if (error instanceof Error) {
+      return status400(res, error.message);
+    }
+    throw error;
+  }
+  if (!id) {
     return status400(res, 'missing or invalid params.');
   }
   const car = findCarById(id);
