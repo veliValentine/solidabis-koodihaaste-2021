@@ -1,8 +1,8 @@
-From node:12
+FROM node:12
 ENV NODE_ENV=production
 WORKDIR /app
 COPY ["package.json", "package-lock.json*", "./"]
-RUN npm run client-build
+RUN "cd ./client: npm run build"
 RUN npm install --production
 COPY . .
 CMD ["node", "index.js"]
