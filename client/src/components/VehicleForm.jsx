@@ -1,7 +1,7 @@
 import useCars from '../hooks/useCars';
 
-const VehicleForm = ({ submit }) => {
-  const [cars] = useCars();
+const VehicleForm = ({ submit, updateError }) => {
+  const [cars] = useCars(updateError);
 
   if (!cars) return null;
 
