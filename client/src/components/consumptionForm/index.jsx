@@ -2,9 +2,9 @@ import { useState } from 'react';
 import NumberInput from './NumberInput';
 
 const ConsumptionForm = ({ submit }) => {
-  const [distance, setDistance] = useState(20);
-  const [velocity1, setVelocity1] = useState(50);
-  const [velocity2, setVelocity2] = useState(0);
+  const [distance, setDistance] = useState(100);
+  const [velocity1, setVelocity1] = useState(100);
+  const [velocity2, setVelocity2] = useState(120);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -15,14 +15,16 @@ const ConsumptionForm = ({ submit }) => {
     });
   };
 
+  const optionalVelocityLabel = <span>Enter second velocity (km/h) <abbr title="optional">*</abbr>: </span>;
+
   return (
-    <form className="velocity" onSubmit={handleSubmit}>
+    <form className="consumption-form" onSubmit={handleSubmit}>
       <NumberInput
         id="distance"
         value={distance}
         setValue={setDistance}
-        placeholder="Distance"
-        label="Enter distance: "
+        placeholder="Distance (km/h)"
+        label="Enter distance (km): "
         required
         min={0.1}
       />
@@ -30,8 +32,8 @@ const ConsumptionForm = ({ submit }) => {
         id="velocity1"
         value={velocity1}
         setValue={setVelocity1}
-        placeholder="Velocity"
-        label="Enter first velocity: "
+        placeholder="Velocity (km/h)"
+        label="Enter first velocity (km/h): "
         required
         min={1}
       />
@@ -39,8 +41,8 @@ const ConsumptionForm = ({ submit }) => {
         id="velocity2"
         value={velocity2}
         setValue={setVelocity2}
-        placeholder="Velocity"
-        label="Enter second velocity (optional):"
+        placeholder="Velocity (km/h)"
+        label={optionalVelocityLabel}
       />
       <button type="submit">Submit</button>
     </form>

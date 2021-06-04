@@ -3,9 +3,9 @@ const NumberInput = ({
   id,
   value,
   setValue,
-  required,
-  placeholder,
-  label = 'Enter velocity: ',
+  required = false,
+  placeholder = '',
+  label = '',
   min = 0
 }) => {
   const handleChange = (event) => setValue(event.target.value);
