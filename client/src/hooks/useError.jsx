@@ -7,7 +7,7 @@ const useError = () => {
 
   useEffect(() => () => clearTimeout(timeoutId), []);
 
-  const updateError = (message, seconds = 5) => {
+  const updateError = (message, seconds = 10) => {
     setError(message);
     clearError(seconds);
   };

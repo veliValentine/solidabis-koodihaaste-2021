@@ -1,40 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 
 import useError from './hooks/useError';
 import useDataHistory from './hooks/useDataHistory';
-import useData from './hooks/useData';
 
-import ConsumptionForm from './components/consumptionForm';
-import Results from './components/results';
-import VehicleForm from './components/VehicleForm';
 import History from './components/History';
 import Error from './components/Error';
+import NavBar from './components/NavBar';
+import MainPage from './components/MainPage';
 
 const App = () => {
   const [error, updateError] = useError();
   const [dataHistory, addHistory, clearHistory] = useDataHistory();
-  const [data, updateData] = useData(updateError, addHistory);
-  const [vehicle, setVehicle] = useState('A');
 
-  const handleVehicleSubmit = (value = '') => {
-    setVehicle(value.toUpperCase());
-    updateData();
-  };
-
-  const handleVelocitySubmit = (values) => updateData({ ...values, vehicle });
-  const showResults = vehicle && data.data1;
   return (
-    <div>
-      <h1> Welcome!</h1>
+    <Router>
+      <NavBar />
       <Error message={error} />
-      <VehicleForm submit={handleVehicleSubmit} updateError={updateError} />
-      <hr />
-      <h2>{vehicle}</h2>
-      {vehicle ? <ConsumptionForm submit={handleVelocitySubmit} /> : null}
-      {showResults ? <><hr /><Results data={data} /></> : null}
-      <hr />
-      <History history={dataHistory} clearHistory={clearHistory} />
-    </div>
+      <Switch>
+        <Route path="/history">
+          <History history={dataHistory} clearHistory={clearHistory} />
+        </Route>
+        <Route path="/">
+          <MainPage updateError={updateError} addHistory={addHistory} />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 
