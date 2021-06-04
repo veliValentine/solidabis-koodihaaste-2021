@@ -5,6 +5,10 @@ const VehicleForm = ({ submit, updateError }) => {
 
   if (!cars) return null;
 
+  if (cars.length < 1){
+    return <p>Could not find any cars from database!</p>;
+  }
+
   const handleChange = (event) => submit(event.target.value.toUpperCase());
 
   const carOption = ({ id }) => <option key={id} value={id}>{id}</option>;
