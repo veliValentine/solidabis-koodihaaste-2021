@@ -6,7 +6,8 @@ const NumberInput = ({
   required = false,
   placeholder = '',
   label = '',
-  min = 0
+  min = 0,
+  max = 500,
 }) => {
   const handleChange = (event) => setValue(event.target.value);
   return (
@@ -19,6 +20,7 @@ const NumberInput = ({
         placeholder={placeholder}
         onChange={handleChange}
         min={min}
+        max={max}
         step="0.1"
         required={required}
       />

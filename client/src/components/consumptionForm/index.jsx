@@ -4,7 +4,7 @@ import NumberInput from './NumberInput';
 const ConsumptionForm = ({ submit }) => {
   const [distance, setDistance] = useState(100);
   const [velocity1, setVelocity1] = useState(100);
-  const [velocity2, setVelocity2] = useState(120);
+  const [velocity2, setVelocity2] = useState(0);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,6 +36,7 @@ const ConsumptionForm = ({ submit }) => {
         label="Enter first velocity (km/h): "
         required
         min={1}
+        max={30000}
       />
       <NumberInput
         id="velocity2"
@@ -43,6 +44,7 @@ const ConsumptionForm = ({ submit }) => {
         setValue={setVelocity2}
         placeholder="Velocity (km/h)"
         label={optionalVelocityLabel}
+        max={30000}
       />
       <button type="submit">Submit</button>
     </form>
