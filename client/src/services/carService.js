@@ -8,6 +8,7 @@ export const cars = async () => {
     return data;
   } catch (error) {
     console.error(error);
+    throw new Error(error);
   }
 };
 
@@ -16,7 +17,8 @@ export const consumption = async (vehicle, distance, velocity) => {
     const { data } = await axios.get(`${CARS_API_URL}/${vehicle}/${distance}/${velocity}`);
     return data;
   } catch (error) {
-    console.error(error);
+    console.error(error, 'poop');
+    throw new Error(error);
   }
 };
 
@@ -26,6 +28,7 @@ export const compare = async (vehicle, distance, velocity1, velocity2) => {
     return data;
   } catch (error) {
     console.error(error);
+    throw new Error(error);
   }
 };
 
