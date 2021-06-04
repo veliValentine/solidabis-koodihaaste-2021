@@ -12,15 +12,21 @@ const Results = ({ data }) => {
   if (noComparison) {
     return (
       <div className="results">
-        <ConsumptionData data={data1} />
+        <h2>Results:</h2>
+        <div className="results-data">
+          <ConsumptionData data={data1} />
+        </div>
       </div>
     );
   }
   return (
     <div className="results">
-      <ConsumptionData data={data1} />
-      <ConsumptionData data={data2} />
-      <DifferenceData difference={difference} />
+      <h2>Results:</h2>
+      <div className="results-data">
+        <ConsumptionData data={data1} />
+        <ConsumptionData data={data2} />
+        <DifferenceData difference={difference} />
+      </div>
     </div>
   );
 };
