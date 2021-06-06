@@ -4,6 +4,11 @@
 - [Client dokumentaatio](./client/README.md)
 ## Sisällyslyettelo
 
+  - [Käytetyt teknologia](#käytetyt-teknologia)
+    - [Server](#server)
+    - [Client](#client)
+  - [Käyttöohjeet](#käyttöohjeet)
+  - [Kuvaus ratkaisusta](#kuvaus-ratkaisusta)
 ## Käytetyt teknologia
 Sovellus on jaettu kahteen osaan. *Server* ja *client*. 
 ### Server
