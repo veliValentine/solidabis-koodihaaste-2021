@@ -11,4 +11,8 @@ app.get(`${V1_ROUTE}/health`, (_req, res) => res.send('ok'));
 
 app.use(`${V1_ROUTE}/cars`, carRouter);
 
+app.get('/*', (_req, res) => {
+  res.sendFile('./clinet/build/index.html');
+});
+
 module.exports = app;
