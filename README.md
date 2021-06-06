@@ -1,7 +1,8 @@
 [![Build image and push to heroku](https://github.com/veliValentine/solidabis-koodihaaste-2021/actions/workflows/build-push-heroku.yml/badge.svg?branch=master)](https://github.com/veliValentine/solidabis-koodihaaste-2021/actions/workflows/build-push-heroku.yml)
 # Solidabis koodihaaste 2021
-- [API dokumentaatio](./server/API.md)
-- [Client dokumentaatio](./client/README.md)
+Tehtävänä oli kehittää käyttöliittymä laskemaan eri matka-aikoja ja kulutuksia eri nopeuksilla.
+
+Käyttöliittymä löytyy herokusta [https://trip-calculator-koodihaaste-21.herokuapp.com/](https://trip-calculator-koodihaaste-21.herokuapp.com/)
 ## Sisällyslyettelo
 
   - [Käytetyt teknologia](#käytetyt-teknologia)
@@ -10,7 +11,9 @@
   - [Käyttöohjeet](#käyttöohjeet)
   - [Kuvaus ratkaisusta](#kuvaus-ratkaisusta)
 ## Käytetyt teknologia
-Sovellus on jaettu kahteen osaan. *Server* ja *client*. 
+Sovellus on jaettu kahteen osaan. *Server* ja *client*.
+- [API dokumentaatio](./server/API.md)
+- [Client dokumentaatio](./client/README.md)
 ### Server
 Serveri on rakennettu käyttäen Node.js. Reitityksen apuna on käytetty Express.js frameworkkia. Serveri pyörittää staattisesti rakennettua clienttiä.
 
