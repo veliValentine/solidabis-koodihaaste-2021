@@ -1,0 +1,34 @@
+FROM node:12-alpine as build-client
+WORKDIR /
+
+COPY client .
+
+RUN adduser client -D
+
+USER client
+
+RUN cd client && \
+	npm i && \
+	npm run build
+
+
+FROM node:12-alpine as build-server
+
+WORKDIR /
+
+COPY --from=build-client /client/build /client/build
+
+ENV NODE_ENV=production
+
+EXPOSE 3000
+ENV PORT=3000
+
+COPY ["package*.json", "index.js", "./"]
+RUN npm i --production
+
+COPY server server
+
+RUN adduser server -D
+USER server
+
+CMD ["npm", "start"]
