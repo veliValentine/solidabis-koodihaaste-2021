@@ -5,9 +5,22 @@ services:
       dockerfile: dev.Dockerfile
     volumes:
       - ./backend/:/usr/src/app
-      - node_modules:/usr/src/app/node_modules
+      - node_modules_back:/usr/src/app/node_modules
     ports:
       - 3001:3001
+    
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: dev.Dockerfile
+    volumes:
+     - ./frontend/:/usr/src/app
+     - node_modules_front:/usr/src/app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - 3000:3000
       
 volumes:
-  node_modules:
+  node_modules_back:
+  node_modules_front:

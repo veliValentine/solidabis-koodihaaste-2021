@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:14
 
 WORKDIR /usr/src/app
 
@@ -7,7 +7,7 @@ ENV PORT=3001
 
 COPY --chown=node:node . .
 
-RUN npm ci
+RUN npm install
 
 USER node
 
