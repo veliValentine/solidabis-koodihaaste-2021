@@ -1,0 +1,32 @@
+{
+  "name": "koodihaaste",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "lint": "eslint .",
+    "build-client": "cd ./client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veliValentine/solidabis-koodihaaste-2021.git"
+  },
+  "author": "veliValentine",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/veliValentine/solidabis-koodihaaste-2021/issues"
+  },
+  "homepage": "https://github.com/veliValentine/solidabis-koodihaaste-2021#readme",
+  "devDependencies": {
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.3",
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1"
+  }
+}
